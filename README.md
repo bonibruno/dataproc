@@ -4,7 +4,7 @@ I provide the cloud shell commands to create a Dataproc Hadoop Cluster and to al
 
 Replace project-name with your Google Cloud project and bucket-name with your Google Storage Bucket Name.  You need a storage bucket to store data, if you already have a Google Storage Bucket, skip the gsutil command.
 
-Note:  The default quota is 2400 CPUs, so if need a cluster that is larger than 2400 CPUs, send a request to Google to increase your quota limit.  
+Note:  The default quota is 2400 CPUs, so if you need a cluster that is larger than 2400 CPUs, send a request to Google to increase your quota limit.  
 
 Regards,
 
