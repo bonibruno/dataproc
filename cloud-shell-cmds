@@ -1,0 +1,16 @@
+gcloud config set project project-name
+gcloud config set dataproc/region us-east4
+gsutil mb -c multi_regional gs://bucket-name/
+time gcloud dataproc clusters create dellemc-dataproc-test --region us-east4 --zone us-east4-a --master-machine-type n1-standard-96 --master-boot-disk-size 1024 --num-workers 8 --worker-machine-type n1-standard-96 --worker-boot-disk-size 1024
+time gcloud dataproc jobs submit hadoop --cluster dellemc-dataproc-test --class org.apache.hadoop.examples.terasort.TeraGen -- 10000000000 gs://bucket-name/teragen
+time gcloud dataproc jobs submit hadoop --cluster dellemc-dataproc-test --class org.apache.hadoop.examples.terasort.TeraSort -- gs://bucket-name/teragen gs://bucket-name/terasort
+time gcloud dataproc jobs submit hadoop --cluster dellemc-dataproc-test --class org.apache.hadoop.examples.terasort.TeraValidate -- gs://bucket-name/terasort gs://bucket-name/teravalidate
+
+4: real    1m26.656s      user    0m1.743s      sys     0m0.181s
+5: real    2m55.056s      user    0m2.504s      sys     0m0.184s
+6: real    32m56.923s     user    0m12.662s     sys     0m0.685s
+7: real    1m21.323s      user    0m2.003s      sys     0m0.163s
+
+Total Run-time:  37 minutes and 22 seconds
+
+Total Cost: $8.64 (https://cloud.google.com/products/calculator/#id=2631e384-8213-4b24-b3f7-4ce684e6eff0)
