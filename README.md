@@ -6,6 +6,9 @@ Replace project-name with your Google Cloud project and bucket-name with your Go
 
 Note:  The default quota is 2400 CPUs, so if you need a cluster that is larger than 2400 CPUs, send a request to Google to increase your quota limit.  
 
+If this is for testing pruposes, don't forget to delete your cluster when your done with:
+gcloud dataproc clusters delete (cluster-name).
+
 Regards,
 
 boni bruno
