@@ -14,3 +14,15 @@ time gcloud dataproc jobs submit hadoop --cluster dellemc-dataproc-test --class 
 Total Run-time:  37 minutes and 22 seconds
 
 Total Cost: $8.64 (https://cloud.google.com/products/calculator/#id=2631e384-8213-4b24-b3f7-4ce684e6eff0)
+
+
+Note:  If you have a specific network vpc you want to create the dataproc cluster in, use the --subnet option, example provided below.
+
+time gcloud dataproc clusters create dellemc-dataproc-test \
+--subnet projects/project-name/regions/us-east4/subnetworks/subnet-name \
+--master-machine-type n1-standard-96 --master-boot-disk-size 1024 \
+--num-workers 8 --worker-machine-type n1-standard-96 --worker-boot-disk-size 1024
+
+Also, you can verify your subnet info with subnets describe, example provided below:
+
+gcloud compute networks subnets describe projects/project-name/regions/us-east4/subnetworks/subnet-name
