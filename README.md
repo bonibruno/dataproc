@@ -9,6 +9,9 @@ Note:  The default quota is 2400 CPUs, so if you need a cluster that is larger t
 If this is for testing pruposes, don't forget to delete your cluster when your done with:
 gcloud dataproc clusters delete (cluster-name).
 
+I also created an HDP 3.1 cluster on the same number and type of instances used for dataproc, but intead of using Google's object storage I used Dell Technologies Cloud OneFS HDFS storage and stored the results in the attached spreadsheet.  It was impressive to see that Cloud OneFS outperform Google Cloud Storage which is massive.  Furthermore, The Cloud OneFS system tested only had 56 nodes and only half the number of network connections were enabled at the time of testing.  
+
 Regards,
 
 boni bruno
+
